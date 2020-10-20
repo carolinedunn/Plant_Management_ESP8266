@@ -3,6 +3,10 @@
 #include <EMailSender.h>
 #include <ESP8266WiFi.h>
 
+//update your SSID and SSID password below
+    const char* ssid = "SSID";
+    const char* password = "SSID_PASSWORD";
+
     uint8_t connection_state = 0;
     uint16_t reconnect_interval = 10000;
     
@@ -57,10 +61,6 @@ int output_value ;
 
 void setup() {
   Serial.begin(115200);
-  
-  //update your SSID and SSID password below
-  const char* ssid = "SSID";
-    const char* password = "SSID_PASSWORD";
   connection_state = WiFiConnect(ssid, password);
     if(!connection_state)  // if not connected to WIFI
         Awaits();          // constantly trying to connect
